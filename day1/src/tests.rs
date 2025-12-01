@@ -18,37 +18,13 @@ fn test_parse_rotation() {
 
 #[test]
 fn test_analyze_roatations() {
-    let res = analyze_roatations(
-        50,
-        "L68
-L30
-R48
-L5
-R60
-L55
-L1
-L99
-R14
-L82",
-        false,
-    );
+    let sample = fs::read_to_string("sample.txt").unwrap();
+
+    let res = analyze_roatations(50, &sample, false);
 
     assert_eq!(res, Ok(3));
 
-    let res = analyze_roatations(
-        50,
-        "L68
-L30
-R48
-L5
-R60
-L55
-L1
-L99
-R14
-L82",
-        true,
-    );
+    let res = analyze_roatations(50, &sample, true);
 
     assert_eq!(res, Ok(6));
 }
